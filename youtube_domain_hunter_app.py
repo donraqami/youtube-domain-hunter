@@ -71,20 +71,19 @@ def show_login():
         st.markdown("<div class='login-card'>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align:center; margin-bottom:1.5rem;'>🔐 Member Login</h3>", unsafe_allow_html=True)
 
-        col1, col2 = st.columns([1, 8, 1])
-        with col2:
-            email = st.text_input("Email", placeholder="you@example.com", key="login_email")
-            password = st.text_input("Password", type="password", placeholder="••••••••", key="login_password")
+        # FIXED: Use 1 column for the login form, centered via CSS
+        email = st.text_input("Email", placeholder="you@example.com", key="login_email")
+        password = st.text_input("Password", type="password", placeholder="••••••••", key="login_password")
 
-            if st.button("Sign In", use_container_width=True):
-                if email in DEMO_USERS and DEMO_USERS[email] == password:
-                    st.session_state.logged_in = True
-                    st.session_state.user_email = email
-                    st.rerun()
-                else:
-                    st.markdown("<div class='error-box'>❌ Invalid email or password</div>", unsafe_allow_html=True)
+        if st.button("Sign In", use_container_width=True):
+            if email in DEMO_USERS and DEMO_USERS[email] == password:
+                st.session_state.logged_in = True
+                st.session_state.user_email = email
+                st.rerun()
+            else:
+                st.markdown("<div class='error-box'>❌ Invalid email or password</div>", unsafe_allow_html=True)
 
-            st.markdown("<p style='text-align:center; color:#5a5e75; font-size:0.8rem; margin-top:1rem;'>Demo: demo@example.com / demo123</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align:center; color:#5a5e75; font-size:0.8rem; margin-top:1rem;'>Demo: demo@example.com / demo123</p>", unsafe_allow_html=True)
 
         st.markdown("</div>", unsafe_allow_html=True)
 
@@ -96,7 +95,7 @@ def show_login():
     """, unsafe_allow_html=True)
 
 # ============================================================
-# HELPER FUNCTIONS (Same as your script)
+# HELPER FUNCTIONS
 # ============================================================
 
 def extract_urls(text):
@@ -191,10 +190,10 @@ def extract_video_id(url_or_id):
 
 def show_app():
     # Header
-    col1, col2, col3 = st.columns([6, 2, 2])
+    col1, col2 = st.columns([6, 2])
     with col1:
         st.markdown("<h2>🎯 YouTube Expired Domain Hunter</h2>", unsafe_allow_html=True)
-    with col3:
+    with col2:
         if st.button("🚪 Logout", type="secondary"):
             st.session_state.logged_in = False
             st.session_state.user_email = ""
@@ -258,7 +257,6 @@ def show_app():
         total_targets = len(video_ids) + len(search_queries)
         progress_bar = st.progress(0)
         status_text = st.empty()
-        log_container = st.container()
 
         all_domains = set()
         results = []
