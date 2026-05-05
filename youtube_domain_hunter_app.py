@@ -234,7 +234,7 @@ DEMO_USERS = {
 def show_login():
     # Hero section
     st.markdown("<div style='text-align:center; padding: 3rem 0 2rem 0;'>", unsafe_allow_html=True)
-    st.markdown("<h1>🎯 YouTube Expired Domain Hunter</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>YouTube Expired Domain Hunter</h1>", unsafe_allow_html=True)
     st.markdown("<p style='color:#64748b; font-size:1.15rem; max-width:500px; margin:0 auto;'>Find expired domains hiding in YouTube video descriptions. Scan, filter, and export in seconds.</p>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -242,7 +242,7 @@ def show_login():
     with st.container():
         st.markdown("<div class='login-card'>", unsafe_allow_html=True)
 
-        st.markdown("<h3 style='text-align:center; margin-bottom:0.5rem; color:#1a1a2e;'>🔐 Member Access</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align:center; margin-bottom:0.5rem; color:#1a1a2e;'>Member Access</h3>", unsafe_allow_html=True)
         st.markdown("<p style='text-align:center; color:#64748b; font-size:0.9rem; margin-bottom:1.5rem;'>Sign in to start hunting domains</p>", unsafe_allow_html=True)
 
         email = st.text_input("Email address", placeholder="you@example.com", key="login_email", label_visibility="visible")
@@ -256,10 +256,10 @@ def show_login():
                     st.session_state.user_email = email
                     st.rerun()
                 else:
-                    st.markdown("<div class='error-box' style='margin-top:1rem;'>❌ Invalid email or password. Try the demo credentials below.</div>", unsafe_allow_html=True)
+                    st.markdown("<div class='error-box' style='margin-top:1rem;'>Invalid email or password. Try the demo credentials below.</div>", unsafe_allow_html=True)
 
         st.markdown("<div style='text-align:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid #e2e8f0;'>", unsafe_allow_html=True)
-        st.markdown("<p style='color:#94a3b8; font-size:0.85rem; margin:0;'>👋 Demo access</p>", unsafe_allow_html=True)
+        st.markdown("<p style='color:#94a3b8; font-size:0.85rem; margin:0;'>Demo access</p>", unsafe_allow_html=True)
         st.markdown("<p style='color:#64748b; font-size:0.9rem; margin:0.25rem 0 0 0;'><code>demo@example.com</code> / <code>demo123</code></p>", unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
 
@@ -272,7 +272,7 @@ def show_login():
     with f1:
         st.markdown("""
         <div style='text-align:center; padding:1rem;'>
-            <div style='font-size:1.5rem; margin-bottom:0.5rem;'>🔍</div>
+            <div style='font-size:1.5rem; margin-bottom:0.5rem; color:#6366f1; font-weight:700;'>[1]</div>
             <div style='font-weight:600; color:#1a1a2e; font-size:0.95rem;'>Bulk Scan</div>
             <div style='color:#64748b; font-size:0.85rem; margin-top:0.25rem;'>Search queries or direct URLs</div>
         </div>
@@ -280,7 +280,7 @@ def show_login():
     with f2:
         st.markdown("""
         <div style='text-align:center; padding:1rem;'>
-            <div style='font-size:1.5rem; margin-bottom:0.5rem;'>⚡</div>
+            <div style='font-size:1.5rem; margin-bottom:0.5rem; color:#6366f1; font-weight:700;'>[2]</div>
             <div style='font-weight:600; color:#1a1a2e; font-size:0.95rem;'>Live Check</div>
             <div style='color:#64748b; font-size:0.85rem; margin-top:0.25rem;'>DNS availability in real-time</div>
         </div>
@@ -288,7 +288,7 @@ def show_login():
     with f3:
         st.markdown("""
         <div style='text-align:center; padding:1rem;'>
-            <div style='font-size:1.5rem; margin-bottom:0.5rem;'>📊</div>
+            <div style='font-size:1.5rem; margin-bottom:0.5rem; color:#6366f1; font-weight:700;'>[3]</div>
             <div style='font-weight:600; color:#1a1a2e; font-size:0.95rem;'>CSV Export</div>
             <div style='color:#64748b; font-size:0.85rem; margin-top:0.25rem;'>Download results instantly</div>
         </div>
@@ -394,11 +394,11 @@ def show_app():
     # Header
     col1, col2 = st.columns([6, 2])
     with col1:
-        st.markdown("<h2 style='margin-bottom:0;'>🎯 YouTube Expired Domain Hunter</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='margin-bottom:0;'>YouTube Expired Domain Hunter</h2>", unsafe_allow_html=True)
         st.markdown(f"<p style='color:#64748b; margin-top:0.25rem;'>Welcome back, <b>{st.session_state.user_email}</b></p>", unsafe_allow_html=True)
     with col2:
         st.markdown("<div style='text-align:right; padding-top:0.5rem;'>", unsafe_allow_html=True)
-        if st.button("🚪 Sign Out", type="secondary"):
+        if st.button("Sign Out", type="secondary"):
             st.session_state.logged_in = False
             st.session_state.user_email = ""
             st.rerun()
@@ -407,7 +407,7 @@ def show_app():
     st.divider()
 
     # --- CONFIGURATION ---
-    with st.expander("⚙️ Configuration", expanded=False):
+    with st.expander("Configuration", expanded=False):
         col1, col2 = st.columns(2)
         with col1:
             api_key = st.text_input(
@@ -419,10 +419,10 @@ def show_app():
         with col2:
             max_results = st.slider("Max videos per search query", 10, 50, 25)
 
-        st.markdown("<p style='color:#94a3b8; font-size:0.8rem;'>💡 Free quota: 10,000 units/day. Search = 100 units, video details = 1 unit.</p>", unsafe_allow_html=True)
+        st.markdown("<p style='color:#94a3b8; font-size:0.8rem;'>Free quota: 10,000 units/day. Search = 100 units, video details = 1 unit.</p>", unsafe_allow_html=True)
 
     # --- INPUTS ---
-    st.markdown("<h3>📥 What do you want to scan?</h3>", unsafe_allow_html=True)
+    st.markdown("<h3>What do you want to scan?</h3>", unsafe_allow_html=True)
     st.markdown("<p style='color:#64748b;'>Enter search queries, video URLs, or video IDs — one per line.</p>", unsafe_allow_html=True)
 
     inputs_text = st.text_area(
@@ -435,9 +435,9 @@ def show_app():
     # Action buttons
     col1, col2, col3 = st.columns([2, 2, 6])
     with col1:
-        start_scan = st.button("🚀 Start Hunt", use_container_width=True, disabled=st.session_state.scanning, type="primary")
+        start_scan = st.button("Start Hunt", use_container_width=True, disabled=st.session_state.scanning, type="primary")
     with col2:
-        if st.button("🧹 Clear Results", use_container_width=True, type="secondary"):
+        if st.button("Clear Results", use_container_width=True, type="secondary"):
             st.session_state.results = []
             st.rerun()
 
@@ -473,7 +473,7 @@ def show_app():
             processed += 1
             progress = processed / max(total_targets, 1)
             progress_bar.progress(min(progress, 0.99))
-            status_text.markdown(f"<p style='color:#64748b; margin:0;'>🔍 Fetching video: <code>{vid}</code> ({processed}/{total_targets})</p>", unsafe_allow_html=True)
+            status_text.markdown(f"<p style='color:#64748b; margin:0;'>Fetching video: <code>{vid}</code> ({processed}/{total_targets})</p>", unsafe_allow_html=True)
 
             video = get_video_details(vid, api_key)
             if video:
@@ -513,7 +513,7 @@ def show_app():
             processed += 1
             progress = processed / max(total_targets, 1)
             progress_bar.progress(min(progress, 0.99))
-            status_text.markdown(f"<p style='color:#64748b; margin:0;'>🔍 Searching: <b>{query}</b> ({processed}/{total_targets})</p>", unsafe_allow_html=True)
+            status_text.markdown(f"<p style='color:#64748b; margin:0;'>Searching: <b>{query}</b> ({processed}/{total_targets})</p>", unsafe_allow_html=True)
 
             videos = search_youtube_videos(query, api_key, max_results)
             for item in videos:
@@ -548,23 +548,23 @@ def show_app():
                 time.sleep(0.3)
 
         progress_bar.progress(1.0)
-        status_text.markdown("<div class='success-box' style='margin-top:0.5rem;'>✅ Scan complete! Found {} unique domains.</div>".format(len(results)), unsafe_allow_html=True)
+        status_text.markdown("<div class='success-box' style='margin-top:0.5rem;'>Scan complete! Found {} unique domains.</div>".format(len(results)), unsafe_allow_html=True)
         st.session_state.results = results
         st.session_state.scanning = False
         time.sleep(0.5)
         st.rerun()
 
     elif start_scan and not api_key:
-        st.markdown("<div class='error-box'>❌ Please enter your YouTube Data API key in Configuration above.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='error-box'>Please enter your YouTube Data API key in Configuration above.</div>", unsafe_allow_html=True)
     elif start_scan and not inputs_text.strip():
-        st.markdown("<div class='error-box'>❌ Please enter at least one search query or video URL.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='error-box'>Please enter at least one search query or video URL.</div>", unsafe_allow_html=True)
 
     # --- RESULTS ---
     if st.session_state.results:
         results = st.session_state.results
 
         st.divider()
-        st.markdown("<h3>📊 Results</h3>", unsafe_allow_html=True)
+        st.markdown("<h3>Results</h3>", unsafe_allow_html=True)
 
         # Stats cards
         available = [r for r in results if r['availability'] == 'likely_available']
@@ -604,7 +604,7 @@ def show_app():
         st.markdown("<br>", unsafe_allow_html=True)
 
         # Filter tabs
-        tab1, tab2, tab3, tab4 = st.tabs(["🎯 Available", "🔒 Taken", "⚠️ Errors", "📋 All Results"])
+        tab1, tab2, tab3, tab4 = st.tabs(["Available", "Taken", "Errors", "All Results"])
 
         def show_table(data, tab):
             if not data:
@@ -613,15 +613,22 @@ def show_app():
 
             df_data = []
             for r in data:
-                status_emoji = {
-                    'likely_available': '🟢',
-                    'taken': '🔴',
-                    'error': '🟡',
-                    'timeout': '⏱️'
-                }.get(r['availability'], '⚪')
+                status_label = {
+                    'likely_available': 'AVAILABLE',
+                    'taken': 'TAKEN',
+                    'error': 'ERROR',
+                    'timeout': 'TIMEOUT'
+                }.get(r['availability'], 'UNKNOWN')
+
+                status_color = {
+                    'likely_available': '#22c55e',
+                    'taken': '#ef4444',
+                    'error': '#f59e0b',
+                    'timeout': '#f59e0b'
+                }.get(r['availability'], '#94a3b8')
 
                 df_data.append({
-                    'Status': f"{status_emoji} {r['availability'].replace('_', ' ').title()}",
+                    'Status': f"<span style='color:{status_color}; font-weight:700; font-size:0.75rem;'>{status_label}</span>",
                     'Domain': r['domain'],
                     'Video': r['video_title'][:50] + '...' if len(r['video_title']) > 50 else r['video_title'],
                     'Channel': r['channel'],
@@ -639,7 +646,7 @@ def show_app():
 
         # CSV Export
         st.divider()
-        st.markdown("<h3>💾 Export Results</h3>", unsafe_allow_html=True)
+        st.markdown("<h3>Export Results</h3>", unsafe_allow_html=True)
 
         if results:
             output = io.StringIO()
@@ -651,7 +658,7 @@ def show_app():
             col1, col2 = st.columns([2, 4])
             with col1:
                 st.download_button(
-                    label="📥 Download CSV",
+                    label="Download CSV",
                     data=csv_bytes,
                     file_name=f"expired_domains_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
                     mime="text/csv",
